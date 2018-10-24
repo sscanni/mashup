@@ -53,13 +53,16 @@ def findARestaurant(mealType,location):
         dict['imageurl'] = ImageURL
         return dict
     else: 
-        return "{}"
+        return None
     
 def PrintInfo(d):
-    print ("Restaurant Name: %s" % (d['name']))
-    print ("Restaurant Address: %s" % (d['address']))
-    print ("Imaage: %s" % (d['imageurl']))
-    print 
+    if d:
+        print ("Restaurant Name: %s" % (d['name']))
+        print ("Restaurant Address: %s" % (d['address']))
+        print ("Imaage: %s" % (d['imageurl']))
+        print 
+    else:
+        print ("No restaurants found")
     return
 
 if __name__ == '__main__':
