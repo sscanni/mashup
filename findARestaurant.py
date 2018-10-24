@@ -13,6 +13,8 @@ foursquare_client_secret = "PSDEBLDRXIQRQVZKY23FTOWNQSHK5FIJAZC1N4IK12WTBDEY"
 curdate = '20181023'
 
 def findARestaurant(mealType,location):
+    print ("mealType=%s" % (mealType))
+    print ("location=%s" % (location))
 	#1. Use getGeocodeLocation to get the latitude and longitude coordinates of the location string.
     latlong = getGeocodeLocation(location)
     latitude=('{:3.2f}'.format(latlong[0]))
@@ -36,7 +38,7 @@ def findARestaurant(mealType,location):
         result = json.loads(h.request(url,'GET')[1])
         #5. Grab the first image
         ImageURL = ""
-        if result['meta']['code'] == '200':
+        if result['meta']['code'] == 200:
             if result['response']['photos']['count'] > 0:
                 ImageURL += result['response']['photos']['items'][0]['prefix']
                 ImageURL += "300x300"
@@ -66,12 +68,12 @@ def PrintInfo(d):
     return
 
 if __name__ == '__main__':
-    PrintInfo(findARestaurant("Pizza", "Tokyo, Japan"))
-    PrintInfo(findARestaurant("Tacos", "Jakarta, Indonesia"))
-    PrintInfo(findARestaurant("Tapas", "Maputo, Mozambique"))
-    PrintInfo(findARestaurant("Falafel", "Cairo, Egypt"))
-    PrintInfo(findARestaurant("Spaghetti", "New Delhi, India"))
-    PrintInfo(findARestaurant("Cappuccino", "Geneva, Switzerland"))
-    PrintInfo(findARestaurant("Sushi", "Los Angeles, California"))
-    PrintInfo(findARestaurant("Steak", "La Paz, Bolivia"))
-    PrintInfo(findARestaurant("Gyros", "Sydney Australia"))
+    print(findARestaurant("Pizza", "Tokyo, Japan"))
+    print(findARestaurant("Tacos", "Jakarta, Indonesia"))
+    print(findARestaurant("Tapas", "Maputo, Mozambique"))
+    print(findARestaurant("Falafel", "Cairo, Egypt"))
+    print(findARestaurant("Spaghetti", "New Delhi, India"))
+    print(findARestaurant("Cappuccino", "Geneva, Switzerland"))
+    print(findARestaurant("Sushi", "Los Angeles, California"))
+    print(findARestaurant("Steak", "La Paz, Bolivia"))
+    print(findARestaurant("Gyros", "Sydney Australia"))
