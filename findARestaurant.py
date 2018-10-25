@@ -1,4 +1,5 @@
 from geocode import getGeocodeLocation
+from getAPIKeys import getAPIKey
 import json
 import httplib2
 
@@ -7,8 +8,9 @@ import codecs
 sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
-foursquare_client_id = "HBTOFBMQOZZMJJWEY1YEDGEPJNPAEIC0DRQRWGA5SLGO3RL3"
-foursquare_client_secret = "PSDEBLDRXIQRQVZKY23FTOWNQSHK5FIJAZC1N4IK12WTBDEY"
+apptab = getAPIKey("Foursquare", "Foursquare")
+foursquare_client_id = apptab.value1
+foursquare_client_secret = apptab.value2
 
 curdate = '20181023'
 
