@@ -8,9 +8,9 @@ import codecs
 sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
-apptab = getAPIKey("Foursquare", "Foursquare")
-foursquare_client_id = apptab.value1
-foursquare_client_secret = apptab.value2
+# Read the client_id and client_secret from a local database
+foursquare_client_id = getAPIKey("Foursquare", "Foursquare", "client_id")
+foursquare_client_secret = getAPIKey("Foursquare", "Foursquare", "client_secret")
 
 curdate = '20181023'
 
