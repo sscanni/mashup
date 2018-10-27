@@ -1,5 +1,5 @@
 from geocode import getGeocodeLocation
-from getAPIKeys import getAPIKey
+from getAPIKeyPackage.getAPIKeys import getAPIKey
 import json
 import httplib2
 
@@ -12,7 +12,7 @@ sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 foursquare_client_id = getAPIKey("Foursquare", "Foursquare", "client_id")
 foursquare_client_secret = getAPIKey("Foursquare", "Foursquare", "client_secret")
 
-curdate = '20181023'
+curdate = '20181026'
 
 def findARestaurant(mealType,location):
     print ("mealType=%s" % (mealType))
@@ -23,7 +23,7 @@ def findARestaurant(mealType,location):
     longitude=('{:3.2f}'.format(latlong[1]))
     latlong = ("%s,%s" % (latitude, longitude))
     #2.  Use foursquare API to find a nearby restaurant with the latitude, longitude, and mealType strings.
-    url = ('https://api.foursquare.com/v2/venues/search?client_id=%s&client_secret=%s&v=%s&ll=%s&query=%s'% (foursquare_client_id, foursquare_client_secret, curdate, latlong, mealType))
+    url = ('http://api.foursquare.com/v2/venues/search?client_id=%s&client_secret=%s&v=%s&ll=%s&query=%s'% (foursquare_client_id, foursquare_client_secret, curdate, latlong, mealType))
     h = httplib2.Http()
     result = json.loads(h.request(url,'GET')[1])
     if result['response']['venues']:

@@ -1,6 +1,6 @@
-from getAPIKeys import getAPIKey
 import httplib2
 import json
+from getAPIKeyPackage.getAPIKeys import getAPIKey
 
 def getGeocodeLocation(inputString):
 

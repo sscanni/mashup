@@ -1,7 +1,7 @@
 from flask import Flask
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from getAPIKeys_database_setup import Base, APIkeys
+from getAPIKeyPackage.getAPIKeys_database_setup import Base, APIkeys
 
 app = Flask(__name__)
 
